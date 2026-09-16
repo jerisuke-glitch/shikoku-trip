@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>四国女子旅のしおり 🌿 10/10〜10/13</title>
+  <style>
+    :root {
+      /* 淡いくすみグリーン基調 */
+      --bg-pale: #e8f0ed;
+      --primary: #5c7d75;
+      --primary-soft: #8daaa3;
+      --primary-light: #f3f7f6;
+      --accent: #374a45;
+      --sub-accent: #789991;
+      --card-bg: #ffffff;
+      --text-main: #2f3836;
+      --text-muted: #62706c;
+      --border-color: #dbe5e2;
+      --tag-bg: #eaf1ee;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      background-color: var(--bg-pale);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 60px;
+      -webkit-font-smoothing: antialiased;
+    }
+    header {
+      background: linear-gradient(135deg, #789991 0%, #53736c 100%);
+      color: #f7fbfa;
+      text-align: center;
+      padding: 34px 20px 24px;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 3px 12px rgba(47, 56, 54, 0.08);
+    }
+    header h1 {
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    header p {
+      font-size: 0.86rem;
+      opacity: 0.92;
+      letter-spacing: 0.8px;
+    }
+    .container {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 18px 14px;
+    }
+
+    /* 全体概要カード */
+    .overview-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      border: 1px solid var(--border-color);
+    }
+    .overview-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .badge {
+      background-color: var(--sub-accent);
+      color: #ffffff;
+      font-size: 0.72rem;
+      padding: 2px 9px;
+      border-radius: 12px;
+      font-weight: normal;
+    }
+    .overview-flow {
+      font-size: 0.84rem;
+      background: var(--primary-light);
+      padding: 10px 12px;
+      border-radius: 8px;
+      line-height: 1.8;
+      margin-bottom: 12px;
+      border-left: 3px solid var(--primary-soft);
+    }
+    .full-route-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.86rem;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 500;
+      margin-top: 10px;
+    }
+
+    /* 日程カード */
+    .day-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      border: 1px solid var(--border-color);
+    }
+    .day-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+      margin-bottom: 14px;
+    }
+    .day-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* セクションブロック */
+    .block-section {
+      margin-bottom: 14px;
+    }
+    .block-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ホテルブロック */
+    .hotel-row {
+      background: var(--primary-light);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .btn-group {
+      display: flex;
+      gap: 5px;
+    }
+    .sub-btn {
+      font-size: 0.72rem;
+      text-decoration: none;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+    .btn-site {
+      background: var(--primary);
+      color: #fff;
+    }
+    .btn-map {
+      background: #e2ece9;
+      color: var(--accent);
+    }
+
+    /* 食事グリッド */
+    .meal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      font-size: 0.82rem;
+    }
+    .meal-box {
+      background: #fafcfb;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 6px 8px;
+    }
+    .meal-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+    .meal-val {
+      font-weight: 500;
+      color: var(--text-main);
+      word-break: break-word;
+    }
+    .meal-undecided {
+      color: #9aa8a4;
+      font-weight: normal;
+    }
+    .meal-link {
+      font-size: 0.68rem;
+      color: var(--primary);
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 2px;
+    }
+
+    /* 行程リスト */
+    .schedule-list {
+      list-style: none;
+      border-left: 2px solid var(--tag-bg);
+      padding-left: 12px;
+      margin-left: 6px;
+    }
+    .schedule-item {
+      position: relative;
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .schedule-item::before {
+      content: '';
+      position: absolute;
+      left: -17px;
+      top: 7px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary-soft);
+    }
+    .schedule-item:last-child {
+      margin-bottom: 0;
+    }
+    .spot-link {
+      font-size: 0.7rem;
+      color: var(--primary);
+      background: #eef4f2;
+      padding: 1px 6px;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-left: 4px;
+    }
+
+    /* 地図アコーディオン */
+    details.map-toggle {
+      margin-top: 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fafcfb;
+    }
+    details.map-toggle summary {
+      font-size: 0.8rem;
+      color: var(--accent);
+      padding: 7px 12px;
+      cursor: pointer;
+      user-select: none;
+      font-weight: 500;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    details.map-toggle summary::-webkit-details-marker {
+      display: none;
+    }
+    details.map-toggle summary::after {
+      content: '▼';
+      font-size: 0.65rem;
+      color: var(--text-muted);
+    }
+    details[open].map-toggle summary::after {
+      content: '▲';
+    }
+    iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+      display: block;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🌿 四国女子旅のしおり</h1>
+    <p>2026.10.10(Sat) 〜 10.13(Tue) 3泊4日</p>
+  </header>
+
+  <div class="container">
+
+    <!-- 全体周遊ルート -->
+    <section class="overview-card">
+      <div class="overview-title">
+        <span>🗺️ 全体ドライブルート</span>
+        <span class="badge">3泊4日</span>
+      </div>
+      <div class="overview-flow">
+        【Day1】大阪 ➔ アンパンマンミュージアム ➔ 桂浜 ➔ JRクレメントイン高知（泊）<br>
+        【Day2】高知市内 ➔ にこ淵 ➔ 仁淀川 ➔ 土佐和紙工芸村くらうど（泊）<br>
+        【Day3】土佐和紙工芸村くらうど ➔ 香川・高松 ➔ 五風十雨（泊）<br>
+        【Day4】五風十雨 ➔ 香川 ➔ 淡路島 ➔ 大阪 🏁
+      </div>
+      <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color);">
+        <iframe src="https://maps.google.com/maps?saddr=大阪駅&daddr=香美市立やなせたかし記念館アンパンマンミュージアム+to:桂浜+to:JRクレメントイン高知+to:にこ淵+to:土佐和紙工芸村くらうど+to:泊+五風十雨+to:淡路ハイウェイオアシス+to:大阪駅&output=embed" style="height: 240px;"></iframe>
+      </div>
+      <a class="full-route-btn" href="https://www.google.com/maps/dir/大阪駅/香美市立やなせたかし記念館アンパンマンミュージアム/桂浜/JRクレメントイン高知/にこ淵/土佐和紙工芸村くらうど/泊+五風十雨/淡路ハイウェイオアシス/大阪駅" target="_blank" rel="noopener">
+        📍 Googleマップで全ルートを開く
+      </a>
+    </section>
+
+    <!-- Day 1 -->
+    <section class="day-card">
+      <div class="day-header">
+        <span class="day-title">Day 1・10/10（土）</span>
+        <span class="badge">高知</span>
+      </div>
+
+      <div class="block-section">
+        <div class="block-title">STAY</div>
+        <div class="hotel-row">
+          <span><strong>JRクレメントイン高知</strong></span>
+          <div class="btn-group">
+            <a class="sub-btn btn-site" href="https://www.jrclement.co.jp/inn/kochi/stay/" target="_blank" rel="noopener">公式HP</a>
+            <a class="sub-btn btn-map" href="https://maps.google.com/?q=JRクレメントイン高知" target="_blank" rel="noopener">MAP</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-section">
+        <div class="block-title">MEALS</div>
+        <div class="meal-grid">
+          <div class="meal-box">
+            <div class="meal-label">朝食</div>
+            <div class="meal-val meal-undecided">未定</div>
+          </div>
+          <div class="meal-box">
+            <div class="meal-label">昼食</div>
+            <div class="meal-val meal-undecided">未定</div>
+          </div>
+          <div class="meal-box">
+            <div class="meal-label">夕食</div>
+            <div class="meal-val">ひろめ市場<br>屋台安兵衛</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-section">
+        <div class="block-title">SCHEDULE</div>
+        <ul class="schedule-list">
+          <li class="schedule-item">🚗 大阪 出発</li>
+          <li class="schedule-item">
+            香美市立やなせたかし記念館（アンパンマンミュージアム）
+            <a class="spot-link" href="https://maps.google.com/?q=香美市立やなせたかし記念館アンパンマンミュージアム" target="_blank" rel="noopener">MAP</a>
+          </li>
+          <li class="schedule-item">
+            桂浜 散策
+            <a class="spot-link" href="https://maps.google.com/?q=桂浜+高知" target="_blank" rel="noopener">MAP</a>
+          </li>
+          <li class="schedule-item">JRクレメントイン高知 チェックイン</li>
+          <li class="schedule-item">夜ごはん：ひろめ市場 ＆ 屋台安兵衛</li>
+        </ul>
+      </div>
+
+      <details class="map-toggle">
+        <summary>📍 周辺地図を表示</summary>
+        <iframe src="https://maps.google.com/maps?q=JRクレメントイン高知,ひろめ市場&t=&z=14&ie=UTF8&iwloc=&output=embed"></iframe>
+      </details>
+    </section>
+
+    <!-- Day 2 -->
+    <section class="day-card">
+      <div class="day-header">
+        <span class="day-title">Day 2・10/11（日）</span>
+        <span class="badge">仁淀川</span>
+      </div>
+
+      <div class="block-section">
+        <div class="block-title">STAY</div>
+        <div class="hotel-row">
+          <span><strong>土佐和紙工芸村くらうど</strong></span>
+          <div class="btn-group">
+            <a class="sub-btn btn-site" href="https://www.qraud-kochi.jp/stay" target="_blank" rel="noopener">公式HP</a>
+            <a class="sub-btn btn-map" href="https://maps.google.com/?q=土佐和紙工芸村くらうど" target="_blank" rel="noopener">MAP</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-section">
+        <div class="block-title">MEALS</div>
+        <div class="meal-grid">
+          <div class="meal-box">
+            <div class="meal-label">朝食</div>
+            <div class="meal-val meal-undecided">未定</div>
+          </div>
+          <div class="meal-box">
+            <div class="meal-label">昼食</div>
+            <div class="meal-val meal-undecided">未定</div>
+          </div>
+          <div class="meal-box">
+            <div class="meal-label">夕食</div>
+            <div class="meal-val meal-undecided">未定</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-section">
+        <div class="block-title">SCHEDULE</div>
+        <ul class="schedule-list">
+          <li class="schedule-item">ホテル出発</li>
+          <li class="schedule-item">
+            にこ淵（神秘の仁淀ブルー）
+            <a class="spot-link" href="https://maps.google.com/?q=にこ淵" target="_blank" rel="noopener">MAP</a>
+          </li>
+          <li class="schedule-item">仁淀川沿いドライブ・立ち寄り</li>
+          <li class="schedule-item">土佐和紙工芸村くらうど チェックイン（和紙体験・温泉）</li>
+        </ul>
+      </div>
+
+      <details class="map-toggle">
+        <summary>📍 周辺地図を表示</summary>
+        <iframe src="https://maps.google.com/maps?q=土佐和紙工芸村くらうど,にこ淵&t=&z=12&ie=UTF8&iwloc=&output=embed"></iframe>
+      </details>
+    </section>
+
+    <!-- Day 3 -->
+    <section class="day-card">
+      <div class="day-header">
+        <span class="day-title">Day 3・10/12（月・祝）</span>
+        <span class="badge">香川・高松</span>
+      </div>
+
+      <div class="block-section">
+        <div class="block-title">STAY</div>
+        <div class="hotel-row">
+          <span><strong>五風十雨</strong></span>
+          <div class="btn-group">
+            <a class="sub-btn btn-site" href="https://gofu-juu.jp/room/" target="_blank" rel="noopener">公式HP</a>
+            <a class="sub-btn btn-map" href="https://maps.google.com/?q=泊+五風十雨" target="_blank" rel="noopener">MAP</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-section">
+        <div class="block-title">MEALS</div>
+        <div class="meal-grid">
+          <div class="meal-box">
+            <div class="meal-label">朝食</div>
+            <div class="meal-val">くらうど</div>
+          </div>
+          <div class="meal-box">
+            <div class="meal-label">昼食</div>
+            <div class="meal-val meal-undecided">未定</div>
+          </div>
+          <div class="meal-box">
+            <div class="meal-label">夕食</div>
+            <div class="meal-val">風のじょうけい</div>
+            <a class="meal-link" href="https://tabelog.com/kagawa/A3701/A370101/37011599/" target="_blank" rel="noopener">食べログ ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-section">
+        <div class="block-title">SCHEDULE</div>
+        <ul class="schedule-list">
+          <li class="schedule-item">くらうどで朝食 ☕</li>
+          <li class="schedule-item">土佐和紙工芸村くらうど ➔ 香川・高松へ移動 🚙</li>
+          <li class="schedule-item">高松エリア散策・寄り道（讃岐うどんなど）</li>
+          <li class="schedule-item">五風十雨にチェックイン</li>
+          <li class="schedule-item">夕飯：風のじょうけい</li>
+        </ul>
+      </div>
+
+      <details class="map-toggle">
+        <summary>📍 周辺地図を表示</summary>
+        <iframe src="https://maps.google.com/maps?q=風のじょうけい+高松&t=&z=14&ie=UTF8&iwloc=&output=embed"></iframe>
+      </details>
+    </section>
+
+    <!-- Day 4 -->
+    <section class="day-card">
+      <div class="day-header">
+        <span class="day-title">Day 4・10/13（火）</span>
+        <span class="badge">淡路島・帰路</span>
+      </div>
+
+      <div class="block-section">
+        <div class="block-title">ROUTE</div>
+        <div class="hotel-row">
+          <span>🚗 <strong>香川 ➔ 淡路島 ➔ 大阪</strong></span>
+        </div>
+      </div>
+
+      <div class="block-section">
+        <div class="block-title">MEALS</div>
+        <div class="meal-grid">
+          <div class="meal-box">
+            <div class="meal-label">朝食</div>
+            <div class="meal-val">五風十雨</div>
+          </div>
+          <div class="meal-box">
+            <div class="meal-label">昼食</div>
+            <div class="meal-val meal-undecided">未定</div>
+          </div>
+          <div class="meal-box">
+            <div class="meal-label">夕食</div>
+            <div class="meal-val meal-undecided">未定</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-section">
+        <div class="block-title">SCHEDULE</div>
+        <ul class="schedule-list">
+          <li class="schedule-item">五風十雨で朝食 🥖</li>
+          <li class="schedule-item">香川ドライブ（お土産・うどん巡り）</li>
+          <li class="schedule-item">
+            淡路島立ち寄り（明石海峡大橋、カフェやお土産）
+            <a class="spot-link" href="https://maps.google.com/?q=淡路ハイウェイオアシス" target="_blank" rel="noopener">MAP</a>
+          </li>
+          <li class="schedule-item">🚗 大阪 到着・解散！お疲れ様でした ✨</li>
+        </ul>
+      </div>
+
+      <details class="map-toggle">
+        <summary>📍 周辺地図を表示</summary>
+        <iframe src="https://maps.google.com/maps?q=淡路ハイウェイオアシス&t=&z=12&ie=UTF8&iwloc=&output=embed"></iframe>
+      </details>
+    </section>
+
+    <footer>
+      Have a wonderful trip! 🌿🍃✨
+    </footer>
+
+  </div>
+
+</body>
+</html>
