@@ -45,6 +45,44 @@
       color: var(--sub-text);
       margin-top: 4px;
     }
+    .map-container {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .map-title {
+      font-size: 0.95rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .map-frame-wrapper {
+      position: relative;
+      width: 100%;
+      height: 260px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e0e0dc;
+    }
+    .map-frame-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .map-open-link {
+      display: block;
+      text-align: right;
+      margin-top: 6px;
+      font-size: 0.8rem;
+      color: var(--secondary-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
     .hotel-summary {
       background-color: #fff;
       border: 1px solid #e0e0dc;
@@ -187,6 +225,22 @@
     <p>10/10 (土) 〜 10/13 (火) 3泊4日</p>
   </header>
 
+  <!-- 全体ルートマップ -->
+  <div class="map-container">
+    <div class="map-title">
+      <span>🗺️ 全体ドライブルート</span>
+    </div>
+    <div class="map-frame-wrapper">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m52!1m12!1m3!1d848529.1764720973!2d133.3034988771192!3d33.91896791993414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m37!3e0!4m5!1s0x3553e1a06757106d%3A0x6b10705f42c38481!2z5Z2C5Ye66aeF!3m2!1d34.3168239!2d133.8569838!4m5!1s0x355152b1263c9b73%3A0xb35147575dfa3d53!2z6aaZ576O5biC56uL44KE44Gq44Gb44Gf44GL44GX6KiY5b-16aSo!3m2!1d33.6493035!2d133.7291129!4m5!1s0x354e19036c05d7b5%3A0xc3f5c94bf76735e5!2z5qGC5rWc!3m2!1d33.497144!2d133.574635!4m5!1s0x354e17ef74de3885%3A0x1eb6f25264b38d6f!2zSmXjgq_jg6zjODPjg7vjgrfjg7zjg6bjg7zjg4jjgpLmsZ7mnK3jgZjjgoLlvIHjg6vjg7zjg4jkuIDpmo4!3m2!1d33.566127!2d133.543202!4m5!1s0x3551d7c4331bf699%3A0x8cebe250a29959f6!2z44GL44KJ44GG44Gp!3m2!1d33.5492419!2d133.3857313!4m5!1s0x3553eb63a948e3cf%3A0x95973eef1ec1b702!2z5LiA6ba0IOWkp-eUsOW6lw!3m2!1d34.3039169!2d134.0531336!5e0!3m2!1sja!2sjp!4v1727700000000!5m2!1sja!2sjp" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+    <a class="map-open-link" href="https://www.google.com/maps/dir/JR坂出駅/香美市立やなせたかし記念館/桂浜/JRクレメントイン高知/土佐和紙工芸村くらうど/一鶴太田店" target="_blank">↗ Googleマップアプリで全ルートを開く</a>
+  </div>
+
   <!-- 宿泊先サマリー -->
   <div class="hotel-summary">
     <h3>🏨 ご宿泊先</h3>
@@ -210,7 +264,7 @@
           ※駅周辺でサクッと讃岐うどんを食べるか、香美市へ向かってランチ。
         </div>
         <div class="btn-group">
-          <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=33.6841,133.3134" target="_blank">🚗 坂出駅へのナビ</a>
+          <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=34.3168,133.8569" target="_blank">🚗 坂出駅へのナビ</a>
         </div>
       </div>
     </div>
@@ -283,7 +337,7 @@
   <div class="day-badge">Day 2：10/11 (日) 仁淀ブルー ➔ 須崎・土佐</div>
   <div class="timeline">
     
-    <!-- ★絶対に忘れないガソリン給油アラート★ -->
+    <!-- ★ガソリン給油アラート★ -->
     <div class="timeline-item gas">
       <div class="time gas-time">08:30 【重要チェック】</div>
       <div class="card gas-alert">
