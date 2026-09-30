@@ -57,9 +57,6 @@
       font-weight: bold;
       color: var(--primary-color);
       margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
     }
     .map-frame-wrapper {
       position: relative;
@@ -114,6 +111,18 @@
       font-weight: bold;
       margin-bottom: 16px;
       margin-top: 10px;
+    }
+    .drive-banner {
+      background-color: #EEF2E6;
+      color: var(--primary-color);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
     .timeline {
       position: relative;
@@ -227,9 +236,7 @@
 
   <!-- 全体ルートマップ -->
   <div class="map-container">
-    <div class="map-title">
-      <span>🗺️ 全体ドライブルート</span>
-    </div>
+    <div class="map-title">🗺️ 全体ドライブルート</div>
     <div class="map-frame-wrapper">
       <iframe 
         src="https://www.google.com/maps/embed?pb=!1m52!1m12!1m3!1d848529.1764720973!2d133.3034988771192!3d33.91896791993414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m37!3e0!4m5!1s0x3553e1a06757106d%3A0x6b10705f42c38481!2z5Z2C5Ye66aeF!3m2!1d34.3168239!2d133.8569838!4m5!1s0x355152b1263c9b73%3A0xb35147575dfa3d53!2z6aaZ576O5biC56uL44KE44Gq44Gb44Gf44GL44GX6KiY5b-16aSo!3m2!1d33.6493035!2d133.7291129!4m5!1s0x354e19036c05d7b5%3A0xc3f5c94bf76735e5!2z5qGC5rWc!3m2!1d33.497144!2d133.574635!4m5!1s0x354e17ef74de3885%3A0x1eb6f25264b38d6f!2zSmXjgq_jg6zjODPjg7vjgrfjg7zjg6bjg7zjg4jjgpLmsZ7mnK3jgZjjgoLlvIHjg6vjg7zjg4jkuIDpmo4!3m2!1d33.566127!2d133.543202!4m5!1s0x3551d7c4331bf699%3A0x8cebe250a29959f6!2z44GL44KJ44GG44Gp!3m2!1d33.5492419!2d133.3857313!4m5!1s0x3553eb63a948e3cf%3A0x95973eef1ec1b702!2z5LiA6ba0IOWkp-eUsOW6lw!3m2!1d34.3039169!2d134.0531336!5e0!3m2!1sja!2sjp!4v1727700000000!5m2!1sja!2sjp" 
@@ -256,12 +263,12 @@
   <div class="timeline">
     
     <div class="timeline-item">
-      <div class="time">10:30 〜 11:00</div>
+      <div class="time">10:00</div>
       <div class="card">
         <div class="card-title">JR坂出駅前で合流！</div>
         <div class="card-desc">
           同行者は松山から特急1本、ろひさんは大阪から車で到着。<br>
-          ※駅周辺でサクッと讃岐うどんを食べるか、香美市へ向かってランチ。
+          ※駅周辺でサクッと讃岐うどんを食べるか、そのまま香美市へ向かってランチ。
         </div>
         <div class="btn-group">
           <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=34.3168,133.8569" target="_blank">🚗 坂出駅へのナビ</a>
@@ -270,7 +277,8 @@
     </div>
 
     <div class="timeline-item">
-      <div class="time">12:30 〜 14:15</div>
+      <div class="drive-banner">🚗 移動：約1時間20分（高速利用 95km）</div>
+      <div class="time">11:30 〜 13:15</div>
       <div class="card">
         <div class="card-title">香美市立やなせたかし記念館</div>
         <div class="card-desc">
@@ -283,11 +291,12 @@
     </div>
 
     <div class="timeline-item">
-      <div class="time">15:00 〜 16:15</div>
+      <div class="drive-banner">🚗 移動：約45〜50分（一般道 33km）</div>
+      <div class="time">14:00 〜 15:15</div>
       <div class="card">
         <div class="card-title">桂浜・坂本龍馬像・海のテラス</div>
         <div class="card-desc">
-          夕暮れ前の柔らかな光に包まれる太平洋の絶景。龍馬像を拝み、「海のテラス」で海を見ながらカフェ散策。
+          午後早めの心地よい海風と太平洋の絶景。龍馬像を拝み、「海のテラス」でカフェやお土産散策。
         </div>
         <div class="btn-group">
           <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=33.4971,133.5746" target="_blank">🚗 桂浜へナビ</a>
@@ -296,25 +305,30 @@
     </div>
 
     <div class="timeline-item">
-      <div class="time">16:45 〜 17:30</div>
+      <div class="drive-banner">🚗 移動：約20〜25分（12km）</div>
+      <div class="time">15:45 〜 17:15</div>
       <div class="card">
-        <div class="card-title">高知東部でお買い物（芋けんぴ＆米粉パン）</div>
+        <div class="card-title">高知東部・卸団地でお買い物＆カフェ</div>
         <div class="card-desc">
-          <strong>① 芋屋金次郎 卸団地店</strong><br>
+          ※3店舗は車で1〜3分の同じエリアに密集！まとめて立ち寄れます。<br><br>
+          <strong>① とさのさと AGRI COLLETTO</strong><br>
+          高知最大級の食のテーマパーク！特産品セレクト・水車亭の「塩けんぴ」購入・柑橘ソフトやカフェ休憩。<br><br>
+          <strong>② 芋屋金次郎 卸団地店</strong><br>
           名物「特選揚げたて芋けんぴ（フライ後12時間以内）」をテイクアウト！<br><br>
-          <strong>② 米粉パン調達（2日目の朝ごはん用）</strong><br>
-          ・「まるげんkitchen」（卸団地から車3分の米粉パン専門店）<br>
-          ・または「サンプラザ卸団地店」（地場スーパーの米粉パンコーナー）
+          <strong>③ 米粉パン調達（2日目の朝ごはん用）</strong><br>
+          「まるげんkitchen」または「サンプラザ卸団地店」で調達。
         </div>
         <div class="btn-group">
-          <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=33.5638,133.5673" target="_blank">🚗 芋屋金次郎へ</a>
-          <a class="nav-btn sub" href="https://www.google.com/maps/dir/?api=1&destination=33.5663,133.5621" target="_blank">🚗 米粉パン（まるげん）へ</a>
+          <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=33.5654,133.5647" target="_blank">🚗 とさのさとへ</a>
+          <a class="nav-btn sub" href="https://www.google.com/maps/dir/?api=1&destination=33.5638,133.5673" target="_blank">🚗 芋屋金次郎へ</a>
+          <a class="nav-btn sub" href="https://www.google.com/maps/dir/?api=1&destination=33.5663,133.5621" target="_blank">🚗 米粉パンへ</a>
         </div>
       </div>
     </div>
 
     <div class="timeline-item">
-      <div class="time">17:45 〜</div>
+      <div class="drive-banner">🚗 移動：約10分（3km）</div>
+      <div class="time">17:30 〜</div>
       <div class="card">
         <div class="card-title">JRクレメントイン高知 チェックイン</div>
         <div class="card-desc">
@@ -330,16 +344,16 @@
 
   <div class="memo-box">
     <strong>💡 1日目のプチメモ</strong><br>
-    ・卸団地エリアに「芋屋金次郎」「米粉パン（まるげんkitchen）」「大型スーパー（サンプラザ）」が密集しているため、チェックイン前に買い出しが一撃で完了します。
+    ・卸団地エリアに「とさのさと」「芋屋金次郎」「米粉パン」が固まっているため、ホテルに入る前の買い出しとお土産選びが一撃で完了します！
   </div>
 
   <!-- DAY 2 -->
   <div class="day-badge">Day 2：10/11 (日) 仁淀ブルー ➔ 須崎・土佐</div>
   <div class="timeline">
     
-    <!-- ★ガソリン給油アラート★ -->
+    <!-- ★ガソリン給油アラート①★ -->
     <div class="timeline-item gas">
-      <div class="time gas-time">08:30 【重要チェック】</div>
+      <div class="time gas-time">08:30 【重要チェック①】</div>
       <div class="card gas-alert">
         <div class="card-title gas-title">⛽️ 高知市街地でガソリン満タン給油！</div>
         <div class="card-desc gas-desc">
@@ -353,6 +367,7 @@
     </div>
 
     <div class="timeline-item">
+      <div class="drive-banner">🚗 移動：約1時間15分（山道経由 45km）</div>
       <div class="time">09:00 〜 11:30</div>
       <div class="card">
         <div class="card-title">にこ淵（仁淀ブルー散策）</div>
@@ -366,6 +381,7 @@
     </div>
 
     <div class="timeline-item">
+      <div class="drive-banner">🚗 移動：約45〜60分</div>
       <div class="time">12:30 〜 16:00</div>
       <div class="card">
         <div class="card-title">ランチ ＆ 午後観光</div>
@@ -376,6 +392,7 @@
     </div>
 
     <div class="timeline-item">
+      <div class="drive-banner">🚗 移動：約20〜30分</div>
       <div class="time">16:30 〜</div>
       <div class="card">
         <div class="card-title">土佐和紙工芸村くらうど チェックイン</div>
@@ -398,6 +415,7 @@
   <div class="day-badge">Day 3：10/12 (月) 高知 ➔ 香川</div>
   <div class="timeline">
     <div class="timeline-item">
+      <div class="drive-banner">🚗 移動：約1時間45分（高知 ➔ 香川・高速利用）</div>
       <div class="time">昼</div>
       <div class="card">
         <div class="card-title">讃岐うどんランチ</div>
@@ -408,6 +426,7 @@
     </div>
 
     <div class="timeline-item">
+      <div class="drive-banner">🚗 移動：約30分</div>
       <div class="time">夕方 〜 夜</div>
       <div class="card">
         <div class="card-title">泊 五風十雨 チェックイン ＆ 風のじょうけい</div>
@@ -440,14 +459,41 @@
     </div>
 
     <div class="timeline-item">
+      <div class="drive-banner">🚗 移動：約15分</div>
       <div class="time">11:00 〜 12:30</div>
       <div class="card">
         <div class="card-title">一鶴 太田店（骨付鳥ランチ）</div>
         <div class="card-desc">
-          香川名物の骨付鳥（おや・ひな）を堪能！食後は高松市内・栗林公園や北浜alleyを巡り、夕方淡路島経由で大阪へ。
+          香川名物の骨付鳥（おや・ひな）を堪能！食後は高松市内・栗林公園や北浜alleyを散策。
         </div>
         <div class="btn-group">
           <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=34.3039,134.0531" target="_blank">🚗 一鶴 太田店へナビ</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ★ガソリン給油アラート②★ -->
+    <div class="timeline-item gas">
+      <div class="time gas-time">14:00頃 【重要チェック②】</div>
+      <div class="card gas-alert">
+        <div class="card-title gas-title">⛽️ 高松市内でガソリン満タン給油！</div>
+        <div class="card-desc gas-desc">
+          ⚠️ 高速道路（神戸淡路鳴門道）や淡路島内はGSが限られ、夕方の阪神高速は渋滞の可能性があります。<br>
+          高速道路（高松中央IC等）に乗る前に、市街地で必ず【満タン】にしてから大阪へ向かいましょう！
+        </div>
+        <div class="btn-group">
+          <a class="nav-btn gas-btn" href="https://www.google.com/maps/search/%E3%82%AC%E3%82%BD%E3%83%AA%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89/@34.3039,134.0531,14z" target="_blank">⛽️ 太田店周辺のGSを検索</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="drive-banner">🚗 移動：約2時間30分〜3時間（淡路島経由 ➔ 大阪）</div>
+      <div class="time">夕方 〜 夜</div>
+      <div class="card">
+        <div class="card-title">淡路SA休憩 ➔ 大阪到着・帰宅</div>
+        <div class="card-desc">
+          淡路ハイウェイオアシス等で休憩を取りながら、無理のないペースで大阪へ！お疲れ様でした✨
         </div>
       </div>
     </div>
@@ -455,7 +501,7 @@
 
   <div class="memo-box">
     <strong>💡 4日目のプチメモ</strong><br>
-    ・香川から大阪までは約2時間半〜3時間。無理のないペースで淡路SAなどで休憩を挟みつつ安全運転で帰りましょう！
+    ・高松で給油を済ませておけば、帰路の渋滞も安心です。淡路SAで観覧車や明石海峡大橋の夜景を眺めつつ休憩を挟みましょう！
   </div>
 
 </div>
