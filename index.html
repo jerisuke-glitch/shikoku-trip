@@ -1,510 +1,411 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>四国女子旅 しおり 2026</title>
-  <style>
-    :root {
-      --primary-color: #557153;
-      --secondary-color: #7D8F69;
-      --accent-color: #E6BA95;
-      --gas-alert-color: #D9534F;
-      --bg-color: #F9F9F6;
-      --card-bg: #FFFFFF;
-      --text-color: #333333;
-      --sub-text: #666666;
-    }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    }
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      padding: 16px;
-      line-height: 1.6;
-    }
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    header {
-      text-align: center;
-      padding: 20px 0 16px;
-    }
-    header h1 {
-      font-size: 1.5rem;
-      color: var(--primary-color);
-      letter-spacing: 1px;
-    }
-    header p {
-      font-size: 0.9rem;
-      color: var(--sub-text);
-      margin-top: 4px;
-    }
-    .map-container {
-      background-color: #fff;
-      border-radius: 12px;
-      padding: 12px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-    .map-title {
-      font-size: 0.95rem;
-      font-weight: bold;
-      color: var(--primary-color);
-      margin-bottom: 8px;
-    }
-    .map-frame-wrapper {
-      position: relative;
-      width: 100%;
-      height: 260px;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid #e0e0dc;
-    }
-    .map-frame-wrapper iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-    .map-open-link {
-      display: block;
-      text-align: right;
-      margin-top: 6px;
-      font-size: 0.8rem;
-      color: var(--secondary-color);
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .hotel-summary {
-      background-color: #fff;
-      border: 1px solid #e0e0dc;
-      border-radius: 12px;
-      padding: 14px 16px;
-      margin-bottom: 24px;
-      font-size: 0.88rem;
-    }
-    .hotel-summary h3 {
-      font-size: 0.95rem;
-      color: var(--primary-color);
-      margin-bottom: 8px;
-    }
-    .hotel-summary ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    .hotel-summary li {
-      margin-bottom: 4px;
-      color: var(--text-color);
-    }
-    .day-badge {
-      display: inline-block;
-      background-color: var(--primary-color);
-      color: #fff;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: bold;
-      margin-bottom: 16px;
-      margin-top: 10px;
-    }
-    .drive-banner {
-      background-color: #EEF2E6;
-      color: var(--primary-color);
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: bold;
-      margin-bottom: 8px;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .timeline {
-      position: relative;
-      padding-left: 20px;
-      border-left: 2px solid var(--secondary-color);
-      margin-left: 10px;
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 24px;
-    }
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -27px;
-      top: 4px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color: var(--primary-color);
-      border: 2px solid #fff;
-    }
-    .timeline-item.gas::before {
-      background-color: var(--gas-alert-color);
-      width: 14px;
-      height: 14px;
-      left: -28px;
-    }
-    .time {
-      font-size: 0.85rem;
-      font-weight: bold;
-      color: var(--secondary-color);
-    }
-    .time.gas-time {
-      color: var(--gas-alert-color);
-    }
-    .card {
-      background-color: var(--card-bg);
-      border-radius: 12px;
-      padding: 14px 16px;
-      margin-top: 6px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    }
-    .card.gas-alert {
-      border: 2px solid var(--gas-alert-color);
-      background-color: #FFF5F5;
-    }
-    .card-title {
-      font-size: 1.05rem;
-      font-weight: bold;
-      color: var(--text-color);
-    }
-    .card-title.gas-title {
-      color: var(--gas-alert-color);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .card-desc {
-      font-size: 0.88rem;
-      color: var(--sub-text);
-      margin-top: 6px;
-    }
-    .card-desc.gas-desc {
-      color: #900;
-      font-weight: 500;
-    }
-    .btn-group {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-    .nav-btn {
-      display: inline-block;
-      padding: 6px 12px;
-      background-color: var(--primary-color);
-      color: #ffffff;
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      transition: opacity 0.2s;
-    }
-    .nav-btn.gas-btn {
-      background-color: var(--gas-alert-color);
-    }
-    .nav-btn.sub {
-      background-color: var(--secondary-color);
-    }
-    .nav-btn:hover {
-      opacity: 0.85;
-    }
-    .memo-box {
-      background-color: #FFF9E6;
-      border-left: 4px solid var(--accent-color);
-      padding: 12px;
-      border-radius: 0 8px 8px 0;
-      font-size: 0.85rem;
-      margin: 16px 0 28px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>四国女子旅しおり 3泊4日</title>
+<style>
+  :root {
+    --primary: #2b7a78;
+    --primary-light: #def2f1;
+    --accent: #e07a5f;
+    --accent-gold: #e9c46a;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --text: #2f3e46;
+    --text-muted: #6c757d;
+    --danger: #e63946;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; }
+  body { background-color: var(--bg); color: var(--text); line-height: 1.6; padding-bottom: 60px; }
+  header { background: linear-gradient(135deg, #17252a, #2b7a78); color: #fff; padding: 30px 20px; text-align: center; border-radius: 0 0 20px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+  header h1 { font-size: 1.5rem; margin-bottom: 8px; letter-spacing: 1px; }
+  header p { font-size: 0.85rem; opacity: 0.9; }
+  
+  .container { max-width: 600px; margin: 0 auto; padding: 15px; }
+  
+  /* Tabs */
+  .tab-nav { display: flex; gap: 8px; margin: 15px 0; overflow-x: auto; padding-bottom: 5px; }
+  .tab-btn { flex: 1; min-width: 70px; padding: 10px 5px; text-align: center; background: #e9ecef; border: none; border-radius: 12px; font-weight: bold; font-size: 0.85rem; color: var(--text-muted); cursor: pointer; transition: 0.2s; }
+  .tab-btn.active { background: var(--primary); color: #fff; box-shadow: 0 2px 8px rgba(43,122,120,0.3); }
+
+  .day-content { display: none; }
+  .day-content.active { display: block; animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* Cards */
+  .card { background: var(--card); border-radius: 16px; padding: 18px; margin-bottom: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); border: 1px solid #edf2f4; }
+  .card-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+  .time-badge { background: var(--primary-light); color: var(--primary); font-weight: bold; font-size: 0.85rem; padding: 3px 8px; border-radius: 6px; }
+  .title { font-size: 1.05rem; font-weight: bold; color: #17252a; }
+  .desc { font-size: 0.85rem; color: #495057; margin-bottom: 12px; }
+  
+  /* Alert Box */
+  .alert-box { background: #fff3cd; border-left: 4px solid var(--accent-gold); padding: 10px 12px; border-radius: 6px; margin: 10px 0; font-size: 0.8rem; color: #664d03; }
+  .alert-danger { background: #ffe5e5; border-left: 4px solid var(--danger); color: #842029; }
+  
+  /* Buttons */
+  .btn-group { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: bold; text-decoration: none; text-align: center; transition: 0.2s; }
+  .btn-map { background: #e8f0fe; color: #1a73e8; border: 1px solid #d2e3fc; }
+  .btn-accent { background: var(--accent); color: #fff; }
+  .btn-safe { background: #198754; color: #fff; box-shadow: 0 2px 6px rgba(25,135,84,0.3); }
+
+  /* Candidate List */
+  .candidate-item { background: #fdfdfd; border: 1px solid #dee2e6; border-radius: 8px; padding: 12px; margin-top: 8px; }
+  .candidate-title { font-weight: bold; font-size: 0.9rem; color: var(--primary); margin-bottom: 4px; }
+
+  footer { text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 30px; }
+</style>
 </head>
 <body>
 
+<header>
+  <h1>🌿 四国女子旅 しおり</h1>
+  <p>仁淀ブルー・天空カルスト・大歩危・讃岐うどん 3泊4日</p>
+</header>
+
 <div class="container">
-  <header>
-    <h1>四国女子旅 2026</h1>
-    <p>10/10 (土) 〜 10/13 (火) 3泊4日</p>
-  </header>
-
-  <!-- 全体ルートマップ -->
-  <div class="map-container">
-    <div class="map-title">🗺️ 全体ドライブルート</div>
-    <div class="map-frame-wrapper">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m52!1m12!1m3!1d848529.1764720973!2d133.3034988771192!3d33.91896791993414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m37!3e0!4m5!1s0x3553e1a06757106d%3A0x6b10705f42c38481!2z5Z2C5Ye66aeF!3m2!1d34.3168239!2d133.8569838!4m5!1s0x355152b1263c9b73%3A0xb35147575dfa3d53!2z6aaZ576O5biC56uL44KE44Gq44Gb44Gf44GL44GX6KiY5b-16aSo!3m2!1d33.6493035!2d133.7291129!4m5!1s0x354e19036c05d7b5%3A0xc3f5c94bf76735e5!2z5qGC5rWc!3m2!1d33.497144!2d133.574635!4m5!1s0x354e17ef74de3885%3A0x1eb6f25264b38d6f!2zSmXjgq_jg6zjODPjg7vjgrfjg7zjg6bjg7zjg4jjgpLmsZ7mnK3jgZjjgoLlvIHjg6vjg7zjg4jkuIDpmo4!3m2!1d33.566127!2d133.543202!4m5!1s0x3551d7c4331bf699%3A0x8cebe250a29959f6!2z44GL44KJ44GG44Gp!3m2!1d33.5492419!2d133.3857313!4m5!1s0x3553eb63a948e3cf%3A0x95973eef1ec1b702!2z5LiA6ba0IOWkp-eUsOW6lw!3m2!1d34.3039169!2d134.0531336!5e0!3m2!1sja!2sjp!4v1727700000000!5m2!1sja!2sjp" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-    <a class="map-open-link" href="https://www.google.com/maps/dir/JR坂出駅/香美市立やなせたかし記念館/桂浜/JRクレメントイン高知/土佐和紙工芸村くらうど/一鶴太田店" target="_blank">↗ Googleマップアプリで全ルートを開く</a>
+  <!-- Tabs -->
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="showDay(1)">1日目<br>10/10(土)</button>
+    <button class="tab-btn" onclick="showDay(2)">2日目<br>10/11(日)</button>
+    <button class="tab-btn" onclick="showDay(3)">3日目<br>10/12(月)</button>
+    <button class="tab-btn" onclick="showDay(4)">4日目<br>10/13(火)</button>
   </div>
 
-  <!-- 宿泊先サマリー -->
-  <div class="hotel-summary">
-    <h3>🏨 ご宿泊先</h3>
-    <ul>
-      <li>・1日目：JRクレメントイン高知</li>
-      <li>・2日目：土佐和紙工芸村くらうど</li>
-      <li>・3日目：泊 五風十雨</li>
-    </ul>
-  </div>
+  <!-- ================= Day 1 ================= -->
+  <div id="day1" class="day-content active">
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">07:30</span>
+        <span class="title">大阪出発 🚗💨</span>
+      </div>
+      <p class="desc">阪神高速・神戸淡路鳴門道経由で四国へ！</p>
+    </div>
 
-  <!-- DAY 1 -->
-  <div class="day-badge">Day 1：10/10 (土) 坂出合流 ➔ 高知</div>
-  <div class="timeline">
-    
-    <div class="timeline-item">
-      <div class="time">10:00</div>
-      <div class="card">
-        <div class="card-title">JR坂出駅前で合流！</div>
-        <div class="card-desc">
-          同行者は松山から特急1本、ろひさんは大阪から車で到着。<br>
-          ※駅周辺でサクッと讃岐うどんを食べるか、そのまま香美市へ向かってランチ。
-        </div>
-        <div class="btn-group">
-          <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=34.3168,133.8569" target="_blank">🚗 坂出駅へのナビ</a>
-        </div>
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">08:45〜09:30</span>
+        <span class="title">淡路SA（下り）でモーニング＆休憩</span>
+      </div>
+      <p class="desc">明石海峡大橋を望む絶景スポット。カフェで軽めの朝食やお茶を楽しみつつリフレッシュ！</p>
+      <div class="btn-group">
+        <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=淡路SA+下り" target="_blank">📍 淡路SAの場所</a>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="drive-banner">🚗 移動：約1時間20分（高速利用 95km）</div>
-      <div class="time">11:30 〜 13:15</div>
-      <div class="card">
-        <div class="card-title">香美市立やなせたかし記念館</div>
-        <div class="card-desc">
-          坂出IC ➔ 高知（南国IC経由）。アンパンマンミュージアムや詩とメルヘン記念館の原画ギャラリーを鑑賞。
-        </div>
-        <div class="btn-group">
-          <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=33.6493,133.7291" target="_blank">🚗 アンパンマンミュージアムへ</a>
-        </div>
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">12:15〜14:15</span>
+        <span class="title">やなせたかし記念館（アンパンマンミュージアム）</span>
+      </div>
+      <p class="desc">高知県香美市。原画や詩の世界に浸れる心温まる美術館。敷地内や併設カフェでランチ休憩をとります。</p>
+      <div class="btn-group">
+        <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&destination=香美市立やなせたかし記念館" target="_blank">🗺️ 淡路SA ➔ やなせたかし記念館 ナビ</a>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="drive-banner">🚗 移動：約45〜50分（一般道 33km）</div>
-      <div class="time">14:00 〜 15:15</div>
-      <div class="card">
-        <div class="card-title">桂浜・坂本龍馬像・海のテラス</div>
-        <div class="card-desc">
-          午後早めの心地よい海風と太平洋の絶景。龍馬像を拝み、「海のテラス」でカフェやお土産散策。
-        </div>
-        <div class="btn-group">
-          <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=33.4971,133.5746" target="_blank">🚗 桂浜へナビ</a>
-        </div>
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">15:15〜16:30</span>
+        <span class="title">桂浜・坂本龍馬像</span>
+      </div>
+      <p class="desc">太平洋の雄大な白波と名勝・桂浜を散策。桂浜海のテラスでお土産やスイーツも楽しめます。</p>
+      <div class="btn-group">
+        <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&destination=桂浜公園駐車場" target="_blank">🗺️ やなせたかし記念館 ➔ 桂浜 ナビ</a>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="drive-banner">🚗 移動：約20〜25分（12km）</div>
-      <div class="time">15:45 〜 17:15</div>
-      <div class="card">
-        <div class="card-title">高知東部・卸団地でお買い物＆カフェ</div>
-        <div class="card-desc">
-          ※3店舗は車で1〜3分の同じエリアに密集！まとめて立ち寄れます。<br><br>
-          <strong>① とさのさと AGRI COLLETTO</strong><br>
-          高知最大級の食のテーマパーク！特産品セレクト・水車亭の「塩けんぴ」購入・柑橘ソフトやカフェ休憩。<br><br>
-          <strong>② 芋屋金次郎 卸団地店</strong><br>
-          名物「特選揚げたて芋けんぴ（フライ後12時間以内）」をテイクアウト！<br><br>
-          <strong>③ 米粉パン調達（2日目の朝ごはん用）</strong><br>
-          「まるげんkitchen」または「サンプラザ卸団地店」で調達。
-        </div>
-        <div class="btn-group">
-          <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=33.5654,133.5647" target="_blank">🚗 とさのさとへ</a>
-          <a class="nav-btn sub" href="https://www.google.com/maps/dir/?api=1&destination=33.5638,133.5673" target="_blank">🚗 芋屋金次郎へ</a>
-          <a class="nav-btn sub" href="https://www.google.com/maps/dir/?api=1&destination=33.5663,133.5621" target="_blank">🚗 米粉パンへ</a>
-        </div>
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">17:00〜18:00</span>
+        <span class="title">高知市 卸団地でお買い物</span>
       </div>
+      <p class="desc">高知のおしゃれインテリア・雑貨店やセレクトショップが集まる人気エリアをぶらり散策。</p>
     </div>
 
-    <div class="timeline-item">
-      <div class="drive-banner">🚗 移動：約10分（3km）</div>
-      <div class="time">17:30 〜</div>
-      <div class="card">
-        <div class="card-title">JRクレメントイン高知 チェックイン</div>
-        <div class="card-desc">
-          ホテルに車を停めてチェックイン。夜は高知名物「ひろめ市場」や屋台餃子、藁焼きカツオのタタキを満喫！
-        </div>
-        <div class="btn-group">
-          <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=33.5661,133.5432" target="_blank">🚗 ホテルへナビ</a>
-        </div>
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">18:30〜</span>
+        <span class="title">高知市内ホテル宿泊 ＆ ひろめ市場で乾杯🍻</span>
       </div>
-    </div>
-
-  </div>
-
-  <div class="memo-box">
-    <strong>💡 1日目のプチメモ</strong><br>
-    ・卸団地エリアに「とさのさと」「芋屋金次郎」「米粉パン」が固まっているため、ホテルに入る前の買い出しとお土産選びが一撃で完了します！
-  </div>
-
-  <!-- DAY 2 -->
-  <div class="day-badge">Day 2：10/11 (日) 仁淀ブルー ➔ 須崎・土佐</div>
-  <div class="timeline">
-    
-    <!-- ★ガソリン給油アラート①★ -->
-    <div class="timeline-item gas">
-      <div class="time gas-time">08:30 【重要チェック①】</div>
-      <div class="card gas-alert">
-        <div class="card-title gas-title">⛽️ 高知市街地でガソリン満タン給油！</div>
-        <div class="card-desc gas-desc">
-          ⚠️ にこ淵・仁淀川の山間部はガソリンスタンドが少なく、休業の場合もあります。<br>
-          ホテル出発直後、国道33号沿いの市街地GSで必ず【満タン】にしてから出発しましょう！
-        </div>
-        <div class="btn-group">
-          <a class="nav-btn gas-btn" href="https://www.google.com/maps/search/%E3%82%AC%E3%82%BD%E3%83%AA%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89/@33.5661,133.5432,14z" target="_blank">⛽️ 近くのGSを検索</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="drive-banner">🚗 移動：約1時間15分（山道経由 45km）</div>
-      <div class="time">09:00 〜 11:30</div>
-      <div class="card">
-        <div class="card-title">にこ淵（仁淀ブルー散策）</div>
-        <div class="card-desc">
-          満タン給油後にこ淵へ！朝の澄んだ光に輝く神秘の滝壺「仁淀ブルー」を鑑賞。
-        </div>
-        <div class="btn-group">
-          <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=33.6841,133.3134" target="_blank">🚗 にこ淵へナビ</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="drive-banner">🚗 移動：約45〜60分</div>
-      <div class="time">12:30 〜 16:00</div>
-      <div class="card">
-        <div class="card-title">ランチ ＆ 午後観光</div>
-        <div class="card-desc">
-          須崎・土佐市の海鮮ランチや、佐川町の白壁酒蔵散策などゆったり巡る。
-        </div>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="drive-banner">🚗 移動：約20〜30分</div>
-      <div class="time">16:30 〜</div>
-      <div class="card">
-        <div class="card-title">土佐和紙工芸村くらうど チェックイン</div>
-        <div class="card-desc">
-          仁淀川のほとりの宿で温泉・ディナーをゆっくり満喫。
-        </div>
-        <div class="btn-group">
-          <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=33.5492,133.3857" target="_blank">🚗 くらうどへナビ</a>
-        </div>
+      <p class="desc">ホテルにチェックイン後、歩いてひろめ市場へ！名物「明神丸」の塩カツオタタキや屋台餃子、地酒で高知の夜を満喫！</p>
+      <div class="btn-group">
+        <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=ひろめ市場" target="_blank">📍 ひろめ市場の場所</a>
       </div>
     </div>
   </div>
 
-  <div class="memo-box">
-    <strong>💡 2日目のプチメモ</strong><br>
-    ・前日に購入した米粉パンで朝食をすませ、にこ淵へは午前中早めの到着を目指すと混雑を回避できます。
-  </div>
-
-  <!-- DAY 3 -->
-  <div class="day-badge">Day 3：10/12 (月) 高知 ➔ 香川</div>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="drive-banner">🚗 移動：約1時間45分（高知 ➔ 香川・高速利用）</div>
-      <div class="time">昼</div>
-      <div class="card">
-        <div class="card-title">讃岐うどんランチ</div>
-        <div class="card-desc">
-          高知から高松道を経由して香川入り。本場の讃岐うどんを堪能！
-        </div>
+  <!-- ================= Day 2 ================= -->
+  <div id="day2" class="day-content">
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">08:30</span>
+        <span class="title">ホテル発 ＆ 高知市内で満タン給油 ⛽</span>
+      </div>
+      <div class="alert-box alert-danger">
+        <strong>⚠️ 超重要チェック①：ガソリン満タン！</strong><br>
+        四国カルスト山頂や山間部はガソリンスタンドが激減＆休日休業が多いため、必ず高知市街を出る前に満タンにしておきます。
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="drive-banner">🚗 移動：約30分</div>
-      <div class="time">夕方 〜 夜</div>
-      <div class="card">
-        <div class="card-title">泊 五風十雨 チェックイン ＆ 風のじょうけい</div>
-        <div class="card-desc">
-          1日2組限定の隠れ家「泊 五風十雨」にチェックイン。夜は「風のじょうけい」で旬の和食とお酒を味わう特別な時間。
-        </div>
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">09:40〜10:30</span>
+        <span class="title">にこ淵（幻想的な仁淀ブルー）</span>
+      </div>
+      <p class="desc">水神の化身の大蛇が棲むとされる神聖な青い淵。午前中の光が差し込む神秘的なエメラルドグリーンを鑑賞！（※足元はスニーカー推奨）</p>
+      <div class="btn-group">
+        <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&destination=にこ淵" target="_blank">🗺️ 高知市 ➔ にこ淵 ナビ</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">11:45〜12:00</span>
+        <span class="title">穴神トンネル北口 展望台（絶景スポット）</span>
+      </div>
+      <p class="desc">安心安全林道の途中にある絶好のフォトスポット！日本屈指の石灰石鉱山「鳥形山」のピラミッドのような要塞美と、これから目指すカルストの稜線が一望できます。</p>
+      <div class="alert-box">
+        トンネル内は暗くカーブしています。出口手前で減速し、抜けた直後の右側スペースに注意して停車してください。
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">12:30〜15:00</span>
+        <span class="title">四国カルスト（天狗高原・姫鶴平）</span>
+      </div>
+      <p class="desc">標高約1,400mの天空ロード！白い石灰岩と放牧牛、緑の草原が広がる絶景。星ふるヴィレッジTENGUや姫鶴荘で高原ランチやソフトクリームを楽しみます。</p>
+      
+      <div class="alert-box alert-danger">
+        <strong>⚠️ YouTuber推薦！安心安全ルートで登る</strong><br>
+        ナビの最短案内（狭小険道）は無視！「道の駅ゆすはら」手前から東津野城川林道（2車線）を通るルートを固定して登ります。
+      </div>
+      <div class="btn-group">
+        <a class="btn btn-safe" href="https://www.google.com/maps/dir/%E9%81%93%E3%81%AE%E9%A7%85+%E3%82%86%E3%81%99%E3%81%AF%E3%82%89/%E7%A9%B4%E7%A5%9E%E3%83%88%E3%83%B3%E3%83%8D%E3%83%AB%E5%8C%97%E5%8F%A3+%E5%B1%95%E6%9C%9B%E5%8F%B0/%E5%A7%AB%E9%B6%鶴%E5%B9%B3" target="_blank">🚗【登り】安心安全ルートGoogleマップ（推奨）</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">15:45〜16:15</span>
+        <span class="title">白龍湖（津野町・与作狸の像）</span>
+      </div>
+      <p class="desc">カルストから下山した先にある静かなパワースポット。コバルトブルーの水面と大きなタヌキの像が目印です。</p>
+      <div class="alert-box alert-danger">
+        <strong>⚠️ 下りも絶対安心安全ルート！</strong><br>
+        下りも登ってきた広い林道をそのまま逆走して国道197号へ下りてから白龍湖へ向かいます（県道304号等の狭い裏道へは絶対に入らないこと）。
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">17:00〜18:00</span>
+        <span class="title">2日目の夜ごはん調達（3つの候補）🍽️</span>
+      </div>
+      <p class="desc">お部屋でのんびり食べるか、お店で出来立てを食べるか、当日の気分で選べます！</p>
+
+      <div class="candidate-item">
+        <div class="candidate-title">候補①：レストラン高知（イートインまたはテイクアウト）</div>
+        <p style="font-size:0.8rem; color:#555;">日高村特産トマトの絶品「南国土佐のオムライス」やチキン南蛮弁当！宿から車で約7分。お店でアツアツを食べるのも、部屋へ持ち帰るのも自由！</p>
         <div class="btn-group">
-          <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=34.3418,134.0528" target="_blank">🚗 泊 五風十雨へナビ</a>
+          <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=レストラン高知+日高村" target="_blank">📍 レストラン高知（TEL: 0889-24-5739）</a>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="memo-box">
-    <strong>💡 3日目のプチメモ</strong><br>
-    ・高知から香川への移動は高速道路で快適。夜の食事とお酒に備えて夕方はお宿でゆったり休憩を。
-  </div>
-
-  <!-- DAY 4 -->
-  <div class="day-badge">Day 4：10/13 (火) 香川 ➔ 大阪帰宅</div>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="time">朝</div>
-      <div class="card">
-        <div class="card-title">泊 五風十雨 朝食</div>
-        <div class="card-desc">
-          お宿の心のこもった朝食をゆっくり味わってからチェックアウト。
-        </div>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="drive-banner">🚗 移動：約15分</div>
-      <div class="time">11:00 〜 12:30</div>
-      <div class="card">
-        <div class="card-title">一鶴 太田店（骨付鳥ランチ）</div>
-        <div class="card-desc">
-          香川名物の骨付鳥（おや・ひな）を堪能！食後は高松市内・栗林公園や北浜alleyを散策。
-        </div>
+      <div class="candidate-item">
+        <div class="candidate-title">候補②：サンプラザ 越知店（スーパー調達）</div>
+        <p style="font-size:0.8rem; color:#555;">国道33号沿い。高知ならではのカツオタタキ、土佐巻き、すり身天、地酒やおつまみをまとめて買い出しして部屋飲み！</p>
         <div class="btn-group">
-          <a class="nav-btn" href="https://www.google.com/maps/dir/?api=1&destination=34.3039,134.0531" target="_blank">🚗 一鶴 太田店へナビ</a>
+          <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=サンプラザ越知店" target="_blank">📍 サンプラザ 越知店（20:00まで）</a>
         </div>
+      </div>
+
+      <div class="candidate-item">
+        <div class="candidate-title">候補③：日高村テイクアウト（焼き鳥＆お刺身）</div>
+        <p style="font-size:0.8rem; color:#555;">「やきとり うえ屋」などの炭火焼き鳥＋地元鮮魚店のお刺身をテイクアウトして、温泉旅館のお部屋居酒屋！</p>
       </div>
     </div>
 
-    <!-- ★ガソリン給油アラート②★ -->
-    <div class="timeline-item gas">
-      <div class="time gas-time">14:00頃 【重要チェック②】</div>
-      <div class="card gas-alert">
-        <div class="card-title gas-title">⛽️ 高松市内でガソリン満タン給油！</div>
-        <div class="card-desc gas-desc">
-          ⚠️ 高速道路（神戸淡路鳴門道）や淡路島内はGSが限られ、夕方の阪神高速は渋滞の可能性があります。<br>
-          高速道路（高松中央IC等）に乗る前に、市街地で必ず【満タン】にしてから大阪へ向かいましょう！
-        </div>
-        <div class="btn-group">
-          <a class="nav-btn gas-btn" href="https://www.google.com/maps/search/%E3%82%AC%E3%82%BD%E3%83%AA%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89/@34.3039,134.0531,14z" target="_blank">⛽️ 太田店周辺のGSを検索</a>
-        </div>
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">18:00〜</span>
+        <span class="title">土佐和紙工芸村くらうど 宿泊 ♨️</span>
       </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="drive-banner">🚗 移動：約2時間30分〜3時間（淡路島経由 ➔ 大阪）</div>
-      <div class="time">夕方 〜 夜</div>
-      <div class="card">
-        <div class="card-title">淡路SA休憩 ➔ 大阪到着・帰宅</div>
-        <div class="card-desc">
-          淡路ハイウェイオアシス等で休憩を取りながら、無理のないペースで大阪へ！お疲れ様でした✨
-        </div>
+      <p class="desc">仁淀川の畔にある温泉宿にチェックイン。名物の薬湯温泉でカルストドライブの疲れを癒やし、美味しいご飯でのんびり夜を過ごします。</p>
+      <div class="btn-group">
+        <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=土佐和紙工芸村くらうど" target="_blank">📍 土佐和紙工芸村くらうど</a>
       </div>
     </div>
   </div>
 
-  <div class="memo-box">
-    <strong>💡 4日目のプチメモ</strong><br>
-    ・高松で給油を済ませておけば、帰路の渋滞も安心です。淡路SAで観覧車や明石海峡大橋の夜景を眺めつつ休憩を挟みましょう！
+  <!-- ================= Day 3 ================= -->
+  <div id="day3" class="day-content">
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">08:45</span>
+        <span class="title">くらうど チェックアウト</span>
+      </div>
+      <p class="desc">朝食を済ませて爽やかな空気の中を出発！</p>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">08:50〜09:20</span>
+        <span class="title">名越屋（なごや）沈下橋</span>
+      </div>
+      <p class="desc">宿から車でたった5分！仁淀川最長（191m）の沈下橋。朝の澄んだ日差しの中で、川底まで透き通る仁淀ブルーを眺めながら散策＆記念撮影！</p>
+      <div class="btn-group">
+        <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=名越屋沈下橋" target="_blank">📍 名越屋沈下橋の場所</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">10:50〜12:30</span>
+        <span class="title">大歩危・小歩危 ＆ 名物「ぼけあげ」ランチ 🥢</span>
+      </div>
+      <p class="desc">2億年の歳月が削り出したエメラルドグリーンの大渓谷！大歩危峡まんなかで絶景を眺めたら、名物グルメを堪能！</p>
+      
+      <div class="candidate-item" style="border-left: 3px solid var(--accent);">
+        <div class="candidate-title">💡 必食名物！歩危マートの「ぼけあげ」</div>
+        <p style="font-size:0.8rem; color:#555;">
+          大歩危駅前の元祖店「歩危マート」（大歩危峡まんなかから車で約2分）。伝統のずっしり固い石豆腐を揚げた、顔面以上の特大油揚げ！外サクッ中ふっくらの素焼き（大根おろし・生姜・醤油）や、名物「雲海汁（ぼけあげ味噌汁）」、ぼけあげそばが絶品です！
+        </p>
+        <div class="btn-group" style="margin-top:6px;">
+          <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=歩危マート" target="_blank">📍 歩危マート（TEL: 0883-84-1111）</a>
+        </div>
+      </div>
+
+      <div class="btn-group" style="margin-top:10px;">
+        <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&destination=大歩危峡まんなか" target="_blank">🗺️️ 名越屋沈下橋 ➔ 大歩危峡まんなか ナビ</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">13:45〜15:30</span>
+        <span class="title">金刀比羅宮（こんぴらさん参拝）</span>
+      </div>
+      <p class="desc">表参道から御本宮まで785段の石段にチャレンジ！讃岐平野を一望する絶景、幸福の黄色いお守り、名物の「おいりソフト」でカフェ休憩！</p>
+      <div class="alert-box">
+        18:00のディナーに余裕を持って向かうため、15:30には参道を出発します。
+      </div>
+      <div class="btn-group">
+        <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&destination=琴平町営琴平駅前東駐車場" target="_blank">🗺️ 大歩危 ➔ こんぴらさん周辺駐車場 ナビ</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">16:30〜16:45</span>
+        <span class="title">泊 五風十雨 チェックイン 🏡</span>
+      </div>
+      <p class="desc">高松市西植田の登録有形文化財を改装した特別な隠れ家宿。お部屋で汗を流して着替え、ディナーへ向けてひと息つきます。</p>
+      <div class="btn-group">
+        <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=泊+五風十雨" target="_blank">📍 泊 五風十雨の場所</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">18:00〜</span>
+        <span class="title">「食と酒 風のじょうけい」で極上ディナー 🍶✨</span>
+      </div>
+      <p class="desc">【予約済：18:00】宿から車で約10〜12分。香川の旬の食材を使った創作和食とこだわりの銘酒を心ゆくまで堪能する贅沢な夜！</p>
+      <div class="btn-group">
+        <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&destination=風のじょうけい+高松市" target="_blank">🗺️ 宿 ➔ 風のじょうけい ナビ</a>
+      </div>
+    </div>
   </div>
 
+  <!-- ================= Day 4 ================= -->
+  <div id="day4" class="day-content">
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">08:30〜10:15</span>
+        <span class="title">泊 五風十雨で朝食 ＆ チェックアウト</span>
+      </div>
+      <p class="desc">地元食材を活かした美味しい和朝食をゆっくり味わい、風情あるお庭を眺めて出発。</p>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">10:30〜11:30</span>
+        <span class="title">本格手打 もり家 高松本店（讃岐うどんランチ）🥢</span>
+      </div>
+      <p class="desc">宿から車で15分！とももぐさん動画で「ハシゴ旅No.1」に輝いた超名店！10:30開店直後に並ばず入店。顔が隠れるほどのサクサク巨大かき揚げと、モチモチの極上うどんを堪能！</p>
+      <div class="btn-group">
+        <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&destination=本格手打もり家+高松本店" target="_blank">🗺️ 宿 ➔ もり家 高松本店 ナビ</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">11:45〜12:00</span>
+        <span class="title">骨付鳥 一鶴 太田店（テイクアウト受け取り）🍗</span>
+      </div>
+      <p class="desc">事前電話予約（087-868-9811）で待ち時間ゼロ！名物「ひなどり」「おやどり」「とりめし」を受け取り、今夜の大阪帰宅後の打ち上げ用に調達！</p>
+      <div class="btn-group">
+        <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&destination=骨付鳥+一鶴+太田店" target="_blank">🗺️ もり家 ➔ 一鶴 太田店 ナビ</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">12:00〜12:15</span>
+        <span class="title">高松市内でガソリン満タン給油 ⛽</span>
+      </div>
+      <div class="alert-box">
+        <strong>⚠️ 重要チェック②：高速前の給油！</strong><br>
+        高速（神戸淡路鳴門道・阪神高速）に乗る前に、市街地で給油を済ませておくと安心です。
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">13:00〜14:30</span>
+        <span class="title">大串自然公園 ＆ 絶景カフェ「時の納屋」☕</span>
+      </div>
+      <p class="desc">瀬戸内海の穏やかな多島美を一望する大串半島へ。建築美と海が溶け合う話題のカフェ「時の納屋」でスイーツ＆ティータイム！</p>
+      <div class="btn-group">
+        <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&destination=時の納屋" target="_blank">🗺️ 高松 ➔ 時の納屋 ナビ</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">15:30〜16:15</span>
+        <span class="title">淡路島南PA または 淡路SA（上り）で休憩</span>
+      </div>
+      <p class="desc">玉ねぎスープやスイーツなど四国・淡路島のお土産を買い足し、明石海峡大橋を渡って本州へ。</p>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="time-badge">18:00頃</span>
+        <span class="title">大阪帰着・お疲れ様でした！🎉</span>
+      </div>
+      <p class="desc">帰宅後は、一鶴の骨付鳥をレンジ＆トースターで温めてビールで乾杯！最高の四国女子旅の締めくくりです🍻✨</p>
+    </div>
+  </div>
 </div>
+
+<footer>
+  <p>Have a wonderful & safe trip to Shikoku! 🚗✨</p>
+</footer>
+
+<script>
+  function showDay(dayNum) {
+    document.querySelectorAll('.day-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('day' + dayNum).classList.add('active');
+    event.currentTarget.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
 
 </body>
 </html>
