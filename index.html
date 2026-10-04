@@ -47,8 +47,8 @@
   /* Buttons */
   .btn-group { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
   .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: bold; text-decoration: none; text-align: center; transition: 0.2s; }
-  .btn-map { background: #e8f0fe; color: #1a73e8; border: 1px solid #d2e3fc; }
-  .btn-accent { background: var(--accent); color: #fff; }
+  .btn-nav { background: #e8f0fe; color: #1a73e8; border: 1px solid #d2e3fc; }
+  .btn-yt { background: #ffebee; color: #cc0000; border: 1px solid #ffcdd2; }
   .btn-safe { background: #198754; color: #fff; box-shadow: 0 2px 6px rgba(25,135,84,0.3); }
 
   /* Candidate List */
@@ -91,7 +91,7 @@
       </div>
       <p class="desc">明石海峡大橋を望む絶景スポット。カフェで軽めの朝食やお茶を楽しみつつリフレッシュ！</p>
       <div class="btn-group">
-        <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=淡路SA+下り" target="_blank">📍 淡路SAの場所</a>
+        <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=淡路SA+下り&travelmode=driving" target="_blank">🧭 現在地から淡路SAへナビ</a>
       </div>
     </div>
 
@@ -102,7 +102,7 @@
       </div>
       <p class="desc">高知県香美市。原画や詩の世界に浸れる心温まる美術館。敷地内や併設カフェでランチ休憩をとります。</p>
       <div class="btn-group">
-        <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&destination=香美市立やなせたかし記念館" target="_blank">🗺️ 淡路SA ➔ やなせたかし記念館 ナビ</a>
+        <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=香美市立やなせたかし記念館アンパンマンミュージアム&travelmode=driving" target="_blank">🧭 現在地からやなせたかし記念館へナビ</a>
       </div>
     </div>
 
@@ -113,7 +113,7 @@
       </div>
       <p class="desc">太平洋の雄大な白波と名勝・桂浜を散策。リニューアルした「桂浜 海のテラス」でお土産やスイーツも楽しめます。</p>
       <div class="btn-group">
-        <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&destination=桂浜公園駐車場" target="_blank">🗺️️ やなせたかし記念館 ➔ 桂浜 ナビ</a>
+        <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=桂浜公園+駐車場&travelmode=driving" target="_blank">🧭 現在地から桂浜駐車場へナビ</a>
       </div>
     </div>
 
@@ -130,31 +130,38 @@
           高知名物「芋けんぴ」の最高峰！店舗限定のオリーブオイルで揚げた「揚げたて芋けんぴ」や、室戸海洋深層水の塩を使った大人気「特撰塩けんぴ」をお土産＆旅のおやつに調達！
         </p>
         <div class="btn-group" style="margin-top:6px;">
-          <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=芋屋金次郎+卸団地店" target="_blank">📍 芋屋金次郎 卸団地店（TEL: 088-883-7421）</a>
+          <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=芋屋金次郎+卸団地店&travelmode=driving" target="_blank">🧭 現在地から芋屋金次郎へナビ</a>
         </div>
       </div>
 
       <div class="candidate-item">
-        <div class="candidate-title">🍞 米粉パン ＆ 地元パン屋さん</div>
+        <div class="candidate-title">🍞 まるげんkitchen ＆【予備】とさのさと（米粉パン）</div>
         <p style="font-size:0.8rem; color:#555;">
-          高知県産米粉を使ったもっちり・しっとり香ばしい米粉パンやベーカリーをチェック！翌朝のおやつや軽食にもぴったりです。
+          <strong>本命：まるげんkitchen</strong>（高知市南御座）<br>
+          高知県産米粉100%のグルテンフリー米粉パン＆焼き菓子専門店！もっちり香ばしいパンを調達。<br>
+          <strong>もし売り切れ・閉店なら：とさのさと / アグリコレット</strong>（車で約2分・19:00まで営業）<br>
+          県内各地の工房から集まる米粉パンコーナーやスイーツが揃う大型産直所！
         </p>
+        <div class="btn-group" style="margin-top:6px;">
+          <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=まるげんkitchen&travelmode=driving" target="_blank">🧭 まるげんkitchenへナビ</a>
+          <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=とさのさと&travelmode=driving" target="_blank">🧭【予備】とさのさとへナビ</a>
+        </div>
       </div>
 
       <div class="candidate-item">
         <div class="candidate-title">🥛 高知県民のソウルドリンク「ひまわりコーヒー」牛乳！</div>
         <p style="font-size:0.8rem; color:#555;">
-          地元スーパー（サンプラザやサンシャインなど）やコンビニで買えるひまわり乳業の「ひまわりコーヒー」！レトロ可愛いパッケージと甘くコクのある味わいで高知女子旅の定番ドリンク！
+          地元スーパー（サンプラザやサンシャイン）や「とさのさと」の乳製品コーナー、コンビニで買えるひまわり乳業の「ひまわりコーヒー」！レトロ可愛いパッケージとコクのある甘さで大人気です。
         </p>
       </div>
 
       <div class="candidate-item">
         <div class="candidate-title">🏢 卸団地セレクトショップ（Atta・藁工倉庫周辺など）</div>
         <p style="font-size:0.8rem; color:#555;">
-          倉庫街を改装したおしゃれなライフスタイルショップやインテリア雑貨、高知の作家もの器などをゆったり散策。
+          倉庫街を改装したおしゃれなライフスタイルショップやインテリア雑貨、器などをゆったり散策。
         </p>
         <div class="btn-group" style="margin-top:6px;">
-          <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&destination=高知卸団地" target="_blank">🗺️ 桂浜 ➔ 高知卸団地 ナビ</a>
+          <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=高知卸団地&travelmode=driving" target="_blank">🧭 現在地から高知卸団地へナビ</a>
         </div>
       </div>
     </div>
@@ -166,7 +173,7 @@
       </div>
       <p class="desc">ホテルにチェックイン後、歩いてひろめ市場へ！名物「明神丸」の塩カツオタタキや屋台餃子、地酒で高知の夜を満喫！</p>
       <div class="btn-group">
-        <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=ひろめ市場" target="_blank">📍 ひろめ市場の場所</a>
+        <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=ひろめ市場&travelmode=walking" target="_blank">🚶 現在地からひろめ市場へ徒歩ナビ</a>
       </div>
     </div>
   </div>
@@ -179,8 +186,11 @@
         <span class="title">ホテル発 ＆ 高知市内で満タン給油 ⛽</span>
       </div>
       <div class="alert-box alert-danger">
-        <strong>⚠️ 超重要チェック①：ガソリン満タン！</strong><br>
+        <strong>⚠️ 超重要チェック①：ガソチン満タン！</strong><br>
         四国カルスト山頂や山間部はガソリンスタンドが激減＆休日休業が多いため、必ず高知市街を出る前に満タンにしておきます。
+      </div>
+      <div class="btn-group">
+        <a class="btn btn-nav" href="https://www.google.com/maps/search/?api=1&query=ガソリンスタンド" target="_blank">⛽ 周辺のガソリンスタンドを探す</a>
       </div>
     </div>
 
@@ -191,7 +201,7 @@
       </div>
       <p class="desc">朝の澄んだ光が差し込む神秘的なエメラルドグリーンを鑑賞！早い時間帯なので混雑を避けてゆっくり写真撮影できます（※足元はスニーカー推奨）。</p>
       <div class="btn-group">
-        <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&destination=にこ淵" target="_blank">🗺️ 高知市 ➔ にこ淵 ナビ</a>
+        <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=にこ淵&travelmode=driving" target="_blank">🧭 現在地からにこ淵へナビ</a>
       </div>
     </div>
 
@@ -204,6 +214,9 @@
       <div class="alert-box">
         トンネル内は暗くカーブしています。出口手前で減速し、抜けた直後の右側スペースに注意して停車してください。
       </div>
+      <div class="btn-group">
+        <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=穴神トンネル北口+展望台&travelmode=driving" target="_blank">🧭 現在地から穴神トンネル北口展望台へナビ</a>
+      </div>
     </div>
 
     <div class="card">
@@ -215,11 +228,15 @@
       
       <div class="alert-box alert-danger">
         <strong>⚠️ YouTuber推薦！安心安全ルートで登る</strong><br>
-        ナビの最短案内（狭小険道）は無視！「道の駅ゆすはら」手前から東津野城川林道（2車線）を通るルートを固定して登ります。
+        ナビの最短案内（狭小険道）は絶対無視！「道の駅ゆすはら」手前から東津野城川林道（2車線）を通るルートを固定して登ります。
       </div>
+
       <div class="btn-group">
-        <a class="btn btn-safe" href="https://www.google.com/maps/dir/%E9%81%93%E3%81%AE%E9%A7%85+%E3%82%86%E3%81%99%E3%81%AF%E3%82%89/%E7%A9%B4%E7%A5%9E%E3%83%88%E3%83%B3%E3%83%8D%E3%83%AB%E5%8C%97%E5%8F%A3+%E5%B1%95%E6%9C%9B%E5%8F%B0/%E5%A7%AB%E9%B6%鶴%E5%B9%B3" target="_blank">🚗【登り】安心安全ルートGoogleマップ（推奨）</a>
-        <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=東津野城川林道+四国カルスト" target="_blank">📍 東津野城川林道（東線）周辺マップ</a>
+        <!-- 登り固定ルート：ゆすはら ➔ 穴神展望台 ➔ 姫鶴荘 -->
+        <a class="btn btn-safe" href="https://www.google.com/maps/dir/%E9%81%93%E3%81%AE%E9%A7%85+%E3%82%86%E3%81%99%E3%81%AF%E3%82%89/%E7%A9%B4%E7%A5%9E%E3%83%88%E3%83%B3%E3%83%8D%E3%83%AB%E5%8C%97%E5%8F%A3+%E5%B1%95%E6%9C%9B%E5%8F%B0/%E5%9B%9B%E5%9B%BD%E3%82%AB%E3%83%AB%E3%82%B9%E3%83%88%E5%A7%AB%E9%B6%B4%E8%8D%98%EF%BC%88%E3%82%81%E3%81%A5%E3%82%8B%E3%81%9D%E3%81%86%EF%BC%89" target="_blank">🚗【登り】安心安全ルートGoogleマップ（推奨）</a>
+        
+        <!-- YouTuber動画リンク -->
+        <a class="btn btn-yt" href="https://www.youtube.com/watch?v=BjpLbcC6yB0" target="_blank">▶️ Roku Rider解説動画を見る（YouTube）</a>
       </div>
     </div>
 
@@ -235,7 +252,8 @@
         下りも登ってきた広い林道をそのまま逆走して国道197号へ下りてから白龍湖へ向かいます（県道304号等の狭い裏道へは絶対に入らないこと）。
       </div>
       <div class="btn-group">
-        <a class="btn btn-safe" href="https://www.google.com/maps/dir/%E6%97%A5%E6%9C%AC,+%E6%84%9B%E5%AA%9B%E7%9C%8C%E4%B9%85%E4%B8%87%E9%AB%98%E5%8E%9F%E7%94%BA%E8%A5%BF%E8%B0%B7,+%E5%A7%AB%E9%B6%B4%E5%B9%B3/%E6%97%A5%E6%9C%AC,+%E9%AB%98%E7%9F%A5%E7%9C%8C%E6%B4%A5%E9%87%8E%E7%94%BA%E5%8C%97%E5%B7%9D,+%E7%A9%B4%E7%A5%9E%E3%83%88%E3%83%B3%E3%83%8D%E3%83%AB%E5%8C%97%E5%8F%A3+%E5%B1%95%E6%9C%9B%E5%8F%B0/%E6%97%A5%E6%9C%AC,+%E9%AB%98%E7%9F%A5%E7%9C%8C%E6%A2%BC%E5%8E%9F%E7%94%BA%E5%A4%AA%E9%83%8E%E5%B7%9D%EF%BC%93%EF%BC%97%EF%BC%98%EF%BC%95,+%E9%81%93%E3%81%AE%E9%A7%85+%E3%82%86%E3%81%99%E3%81%AF%E3%82%89/%E6%97%A5%E6%9C%AC,+%E9%AB%98%E7%9F%A5%E7%9C%8C%E6%B4%A5%E9%87%8E%E7%94%BA%E8%8A%B3%E7%94%9F%E9%87%8E%E7%94%B2,+%E7%99%BD%E9%BE%8D%E6%B9%96" target="_blank">🚗【下り】安心安全ルートGoogleマップ（姫鶴平 ➔ 穴神 ➔ ゆすはら ➔ 白龍湖）</a>
+        <!-- 下り固定ルート：姫鶴荘 ➔ 穴神展望台 ➔ ゆすはら ➔ 白龍湖 -->
+        <a class="btn btn-safe" href="https://www.google.com/maps/dir/%E5%9B%9B%E5%9B%BD%E3%82%AB%E3%83%AB%E3%82%B9%E3%83%88%E5%A7%AB%E9%B6%B4%E8%8D%98%EF%BC%88%E3%82%81%E3%81%A5%E3%82%8B%E3%81%9D%E3%81%86%EF%BC%89/%E7%A9%B4%E7%A5%9E%E3%83%88%E3%83%B3%E3%83%8D%E3%83%AB%E5%8C%97%E5%8F%A3+%E5%B1%95%E6%9C%9B%E5%8F%B0/%E9%81%93%E3%81%AE%E9%A7%85+%E3%82%86%E3%81%99%E3%81%AF%E3%82%89/%E7%99%BD%E9%BE%8D%E6%B9%96" target="_blank">🚗【下り】安心安全ルートGoogleマップ（姫鶴荘 ➔ 穴神 ➔ ゆすはら ➔ 白龍湖）</a>
       </div>
     </div>
 
@@ -250,7 +268,7 @@
         <div class="candidate-title">候補①：レストラン高知（イートインまたはテイクアウト）</div>
         <p style="font-size:0.8rem; color:#555;">日高村特産トマトの絶品「南国土佐のオムライス」やチキン南蛮弁当！宿から車で約7分。お店でアツアツを食べるのも、部屋へ持ち帰るのも自由！</p>
         <div class="btn-group">
-          <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=レストラン高知+日高村" target="_blank">📍 レストラン高知（TEL: 0889-24-5739）</a>
+          <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=レストラン高知&travelmode=driving" target="_blank">🧭 現在地からレストラン高知へナビ（TEL: 0889-24-5739）</a>
         </div>
       </div>
 
@@ -258,13 +276,16 @@
         <div class="candidate-title">候補②：サンプラザ 越知店（スーパー調達）</div>
         <p style="font-size:0.8rem; color:#555;">国道33号沿い。高知ならではのカツオタタキ、土佐巻き、すり身天、地酒やおつまみをまとめて買い出しして部屋飲み！</p>
         <div class="btn-group">
-          <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=サンプラザ越知店" target="_blank">📍 サンプラザ 越知店（20:00まで）</a>
+          <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=サンプラザ越知店&travelmode=driving" target="_blank">🧭 現在地からサンプラザ越知店へナビ（20:00まで）</a>
         </div>
       </div>
 
       <div class="candidate-item">
         <div class="candidate-title">候補③：日高村テイクアウト（焼き鳥＆お刺身）</div>
         <p style="font-size:0.8rem; color:#555;">「やきとり うえ屋」などの炭火焼き鳥＋地元鮮魚店のお刺身をテイクアウトして、温泉旅館のお部屋居酒屋！</p>
+        <div class="btn-group">
+          <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=やきとりうえ屋&travelmode=driving" target="_blank">🧭 現在地からやきとりうえ屋へナビ</a>
+        </div>
       </div>
     </div>
 
@@ -275,7 +296,7 @@
       </div>
       <p class="desc">仁淀川の畔にある温泉宿に早めにチェックイン。名物の薬湯温泉でカルストドライブの疲れを癒やし、美味しいご飯でのんびり夜を過ごします。</p>
       <div class="btn-group">
-        <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=土佐和紙工芸村くらうど" target="_blank">📍 土佐和紙工芸村くらうど</a>
+        <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=土佐和紙工芸村くらうど&travelmode=driving" target="_blank">🧭 現在地から土佐和紙工芸村くらうどへナビ</a>
       </div>
     </div>
   </div>
@@ -297,16 +318,16 @@
       </div>
       <p class="desc">宿から車でたった5分！仁淀川最長（191m）の沈下橋。朝一番の澄んだ日差しの中で、川底まで透き通る仁淀ブルーを眺めながら散策＆記念撮影！</p>
       <div class="btn-group">
-        <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=名越屋沈下橋" target="_blank">📍 名越屋沈下橋の場所</a>
+        <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=名越屋沈下橋&travelmode=driving" target="_blank">🧭 現在地から名越屋沈下橋へナビ</a>
       </div>
     </div>
 
     <div class="card">
       <div class="card-header">
-        <span class="time-badge">10:15〜12:00</span>
+        <span class="time-badge">10:15〜12:15</span>
         <span class="title">大歩危・小歩危 ＆ 名物「ぼけあげ」ランチ 🥢</span>
       </div>
-      <p class="desc">2億年の歳月が削り出したエメラルドグリーンの大渓谷！大歩危峡まんなかで絶景を眺めたら、名物グルメを堪能！</p>
+      <p class="desc">2億年の歳月が削り出したエメラルドグリーンの大渓谷！大歩危峡まんなかで絶景を眺めたら、名物グルメや近隣スポットを満喫！</p>
       
       <div class="candidate-item" style="border-left: 3px solid var(--accent);">
         <div class="candidate-title">💡 必食名物！歩危マートの「ぼけあげ」</div>
@@ -314,12 +335,22 @@
           大歩危駅前の元祖店「歩危マート」（大歩危峡まんなかから車で約2分）。伝統のずっしり固い石豆腐を揚げた、顔面以上の特大油揚げ！外サクッ中ふっくらの素焼き（大根おろし・生姜・醤油）や、名物「雲海汁（ぼけあげ味噌汁）」、ぼけあげそばが絶品です！
         </p>
         <div class="btn-group" style="margin-top:6px;">
-          <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=歩危マート" target="_blank">📍 歩危マート（TEL: 0883-84-1111）</a>
+          <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=歩危マート&travelmode=driving" target="_blank">🧭 現在地から歩危マートへナビ（TEL: 0883-84-1111）</a>
+        </div>
+      </div>
+
+      <div class="candidate-item" style="border-left: 3px solid var(--primary);">
+        <div class="candidate-title">🌉 日本三奇橋！祖谷のかずら橋（寄り道候補）</div>
+        <p style="font-size:0.8rem; color:#555;">
+          大歩危峡まんなかから車で約20分！シラクチカズラのツルを編んで作られた国指定重要有形民俗文化財の吊り橋。すき間からエメラルドグリーンの川面が見えるスリル満点の空中散歩が体験できます（渡橋所要約15分）。
+        </p>
+        <div class="btn-group" style="margin-top:6px;">
+          <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=祖谷のかずら橋&travelmode=driving" target="_blank">🧭 現在地から祖谷のかずら橋へナビ</a>
         </div>
       </div>
 
       <div class="btn-group" style="margin-top:10px;">
-        <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&destination=大歩危峡まんなか" target="_blank">🗺 名越屋沈下橋 ➔ 大歩危峡まんなか ナビ</a>
+        <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=大歩危峡まんなか&travelmode=driving" target="_blank">🧭 現在地から大歩危峡まんなかへナビ</a>
       </div>
     </div>
 
@@ -333,7 +364,7 @@
         18:00のディナーに余裕を持って向かうため、15:30までには参道を出発します。
       </div>
       <div class="btn-group">
-        <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&destination=琴平町営琴平駅前東駐車場" target="_blank">🗺️ 大歩危 ➔ こんぴらさん周辺駐車場 ナビ</a>
+        <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=町営駅前東駐車場+琴平&travelmode=driving" target="_blank">🧭 現在地から琴平町営駐車場へナビ</a>
       </div>
     </div>
 
@@ -344,7 +375,7 @@
       </div>
       <p class="desc">高松市西植田の登録有形文化財を改装した特別な隠れ家宿。お部屋で汗を流して着替え、ディナーへ向けてゆったりひと息つきます。</p>
       <div class="btn-group">
-        <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=泊+五風十雨" target="_blank">📍 泊 五風十雨の場所</a>
+        <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=泊+五風十雨&travelmode=driving" target="_blank">🧭 現在地から泊 五風十雨へナビ</a>
       </div>
     </div>
 
@@ -355,7 +386,7 @@
       </div>
       <p class="desc">【予約済：18:00】宿から車で約10〜12分。香川の旬の食材を使った創作和食とこだわりの銘酒を心ゆくまで堪能する贅沢な夜！</p>
       <div class="btn-group">
-        <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&destination=風のじょうけい+高松市" target="_blank">🗺️ 宿 ➔ 風のじょうけい ナビ</a>
+        <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=風のじょうけい&travelmode=driving" target="_blank">🧭 現在地から風のじょうけいへナビ</a>
       </div>
     </div>
   </div>
@@ -377,7 +408,7 @@
       </div>
       <p class="desc">宿から車で15分！とももぐさん動画で「ハシゴ旅No.1」に輝いた超名店！10:30開店直後に並ばず入店。顔が隠れるほどのサクサク巨大かき揚げと、モチモチの極上うどんを堪能！</p>
       <div class="btn-group">
-        <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&destination=本格手打もり家+高松本店" target="_blank">🗺️ 宿 ➔ もり家 高松本店 ナビ</a>
+        <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=本格手打もり家+高松本店&travelmode=driving" target="_blank">🧭 現在地からもり家 高松本店へナビ</a>
       </div>
     </div>
 
@@ -388,7 +419,7 @@
       </div>
       <p class="desc">事前電話予約（087-868-9811）で待ち時間ゼロ！名物「ひなどり」「おやどり」「とりめし」を受け取り、今夜の大阪帰宅後の打ち上げ用に調達！</p>
       <div class="btn-group">
-        <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&destination=骨付鳥+一鶴+太田店" target="_blank">🗺️ もり家 ➔ 一鶴 太田店 ナビ</a>
+        <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=一鶴+太田店&travelmode=driving" target="_blank">🧭 現在地から一鶴 太田店へナビ</a>
       </div>
     </div>
 
@@ -397,9 +428,12 @@
         <span class="time-badge">12:00〜12:15</span>
         <span class="title">高松市内でガソリン満タン給油 ⛽</span>
       </div>
-      <div class="alert-box">
-        <strong>⚠️ 重要チェック②：高速前の給油！</strong><br>
-        高速（神戸淡路鳴門道・阪神高速）に乗る前に、市街地で給油を済ませておくと安心です。
+      <div class="alert-box alert-danger">
+        <strong>⚠️ 超重要チェック②：高速前にガソリン満タン！</strong><br>
+        高速（高松東IC〜神戸淡路鳴門道・阪神高速）に乗る前に、必ず市街地で給油を済ませておきます（高速上の給油所は割高＆少ないため安心です）。
+      </div>
+      <div class="btn-group">
+        <a class="btn btn-nav" href="https://www.google.com/maps/search/?api=1&query=ガソリンスタンド" target="_blank">⛽ 周辺のガソリンスタンドを探す</a>
       </div>
     </div>
 
@@ -410,7 +444,7 @@
       </div>
       <p class="desc">瀬戸内海の穏やかな多島美を一望する大串半島へ。建築美と海が溶け合う話題のカフェ「時の納屋」でスイーツ＆ティータイム！</p>
       <div class="btn-group">
-        <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&destination=時の納屋" target="_blank">🗺️ 高松 ➔ 時の納屋 ナビ</a>
+        <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=時の納屋&travelmode=driving" target="_blank">🧭 現在地から時の納屋へナビ</a>
       </div>
     </div>
 
@@ -420,6 +454,9 @@
         <span class="title">淡路島南PA または 淡路SA（上り）で休憩</span>
       </div>
       <p class="desc">玉ねぎスープやスイーツなど四国・淡路島のお土産を買い足し、明石海峡大橋を渡って本州へ。</p>
+      <div class="btn-group">
+        <a class="btn btn-nav" href="https://www.google.com/maps/dir/?api=1&destination=淡路SA+上り&travelmode=driving" target="_blank">🧭 現在地から淡路SA（上り）へナビ</a>
+      </div>
     </div>
 
     <div class="card">
